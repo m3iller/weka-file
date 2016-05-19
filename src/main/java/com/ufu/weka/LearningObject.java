@@ -13,6 +13,8 @@ public class LearningObject {
 	private Integer intuitivo;
 	private Integer sensitivo;
 	
+	private String cluster;
+	
 	public Integer getGlobal() {
 		return global;
 	}
@@ -91,12 +93,30 @@ public class LearningObject {
 		return true;
 	}
 	
+	public String getCluster() {
+		return cluster;
+	}
+	public void setCluster(String cluster) {
+		this.cluster = cluster;
+	}
+	
+	public String toStringSom() {
+		return   this.sensitivo + "," + this.intuitivo + ","  +
+				this.ativo + "," + this.reflexivo+ "," +
+				 this.sequencial + "," + this.global + "," +
+				this.visual + "," + this.verbal ;				
+	}
+	
+	
 	@Override
 	public String toString() {
-		return this.ativo + "," + this.reflexivo+ "," +
+		return this.id + "," +  
 				 this.sensitivo + "," + this.intuitivo + ","  +
+				 this.ativo + "," + this.reflexivo + "," +
 				 this.sequencial + "," + this.global + "," +
-				this.visual + "," + this.verbal;
+				this.visual + "," + this.verbal + "," + this.cluster ;
 				
 	}
+	
+	
 }

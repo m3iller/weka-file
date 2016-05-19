@@ -1,0 +1,75 @@
+
+MATLAB File Help: iris_dataset	View code for iris_dataset	Default Topics
+iris_dataset
+ iris_dataset Iris flower dataset
+ 
+  Pattern recognition is the process of training a neural network to assign
+  the correct target classes to a set of input patterns.  Once trained the
+  network can be used to classify patterns it has not seen before.
+ 
+  This dataset can be used to create a neural network that classifies iris
+  flowers into three species.
+ 
+  LOAD iris_dataset.MAT loads these two variables:
+ 
+    irisInputs - a 4x150 matrix of four attributes of 1000 flowers.
+ 
+      1. Sepal length in cm
+      2. Sepal width in cm
+      3. Petal length in cm
+      4. Petal width in cm
+ 
+    irisTargets - a 3x150 matrix of 1000 associated class vectors
+    defining which of four classes each input is assigned to.  Classes
+    are represented by a 1 in one of four rows, with zeros in the others.
+ 
+  [X,T] = iris_dataset loads the inputs and targets into
+  variables of your own choosing.
+ 
+  For an intro to pattern recognition with the Neural Pattern Recognition app
+  click "Load Example Data Set" in the second panel and pick this dataset.
+ 
+  Here is how to design a pattern recognition neural network with this
+  data at the command line.  See patternnet for more details.
+ 
+    [x,t] = iris_dataset;
+    net = patternnet(10);
+    net = train(net,x,t);
+    view(net)
+    y = net(x);
+    plotconfusion(t,y)
+ 
+  Clustering is the process of training a neural network on patterns
+  so that the network comes up with its own classifications according
+  to pattern similarity and relative topology.  This is useful for gaining
+  insight into data, or simplifying it before further processing.
+ 
+  For an intro to clustering with the Neural Clustering App
+  click "Load Example Data Set" in the second panel and pick this dataset.
+ 
+  Here is how to design an 3x3 clustering neural network with this data at
+  the command line.  See selforgmap for more details.
+ 
+    x = iris_dataset;
+    net = selforgmap([3 3]);
+    net = train(net,x);
+    view(net)
+    y = net(x);
+    classes = vec2ind(y);
+    
+  
+ 
+  ----------
+ 
+  This data is available from the UCI Machine Learning Repository.
+ 
+    http://mlearn.ics.uci.edu/MLRepository.html
+ 
+  Murphy,P.M., Aha, D.W. (1994). UCI Repository of machine learning
+  databases [http://www.ics.uci.edu/~mlearn/MLRepository.html].
+  Irvine, CA: University of California,  Department of Information
+  and Computer Science.
+ 
+  From R.A. Fisher.
+See also
+nprtool, patternnet, nctool, selforgmap, nndatasets.
